@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- This meta section is important as it handles the responsiveness-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ShareRide</title>
+ 
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body class="login" onload="myFunction()">
+    <!-- Header div-->
+    <div class = "header">
+      <div class = "center vertical corners">
+        <div class="toolbar top-corners">
+          <h2 class="span">Login</h2>
+        </div>
+        <!-- Login Form-->
+         <form role="form">
+          <div class="form-group padding">
+            <input type="text" class="form-control center-text" id="fname" placeholder="First Name">
+          </div>
+          <div class="form-group padding">
+            <input type="text" class="form-control center-text" id="lname" placeholder="Last Name">
+          </div>
+          <div class="form-group padding">
+            <input type="email" class="form-control center-text" id="email" placeholder="Email">
+          </div>
+          <div class="form-group padding">
+            <input type="tel" class="form-control center-text" id="number" placeholder="Phone Number">
+          </div>		  
+          <div class="padding">
+            <button type="submit" class="btn btn-default btn-block submit" onclick="login()">Submit</button>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+      x = 1;
+
+      function login(){
+        var fname = document.getElementById("fname").value;
+        var lname = document.getElementById("lname").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("number").value;
+          
+        var x = new info(fname,lname,email,phone);
+          var name = x.firstName +" "+x.lastName;
+          var other = x.email +" "+ x.phone;
+          getValue(name, other);
+      }
+      
+      function info(fname, lname, email, phone) {
+        this.firstName = fname;
+        this.lastName  = lname;
+        this.email  = email;
+        this.phone  = phone;
+      }
+      
+      function getValue(name, other){
+        var retVal = alert("Personal Info: "+ name +" Basic Info: "+ other);
+      }
+
+      function count(){
+        image = "../img/image_blur_"
+        if(x ==1){
+          image = image+""+x;
+          x = x+1;
+          return image;
+        }else if(x ==2){
+          image = image+""+x;
+          x = x+1;
+          return image;
+        }else if(x ==3){
+          image = image+""+x;
+          x = 1;
+          return image;
+        }
+      }
+
+      function myFunction() {
+          var x = count();
+          alert(x);
+          document.body.style.backgroundImage = "url('../img/image_blur_2.jpg')";
+          setTimeout(myFunction, 5000);
+      }
+    </script>
+  </body>
+</html>
